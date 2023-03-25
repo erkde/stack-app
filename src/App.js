@@ -1,6 +1,6 @@
 import { Hidden, HiddenSizes } from './Hidden';
 import { NullRenderer } from './NullRenderer';
-import { Stack } from './Stack';
+import { Stack, Justify } from './Stack';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         this demo.
       </p>
 
-      <Stack>
+      <Stack alignX={Justify.center}>
         <div>Hello, worlds</div>
         <div>Hello, worlds</div>
         <NullRenderer />

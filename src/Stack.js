@@ -4,6 +4,10 @@ import styled, { css } from 'styled-components';
 import { Hidden, hiddenMixin } from './Hidden';
 
 const StackChild = styled.div`
+  display: flex;
+  ${props => props.alignX && css`
+    justify-content: ${props.alignX};
+  `}
   padding-block: 12px;
   width: 100%;
 
@@ -34,16 +38,25 @@ const StackContainer = styled.div`
   }
 `;
 
-export function Stack({ children }) {
+export const Justify = {
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end'
+}
+
+export function Stack({ alignX, children }) {
   return (
     <StackContainer>
-      {React.Children.toArray(children).map((child, index) => {
-        return (
-          <StackChild key={index} above={child.type.displayName === Hidden.displayName ? child.props.above : undefined}>
-            {child}
-          </StackChild>
-        )
-      })}
+      {React.Children.toArray(children).map((child, index) => (
+        <StackChild 
+          key={index} 
+          above={child.type.displayName === Hidden.displayName ? child.props.above : undefined} 
+          alignX={alignX}
+        >
+          {child}
+        </StackChild>
+      )
+    )}
     </StackContainer>    
   );
 }
