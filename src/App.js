@@ -1,8 +1,17 @@
 import { Hidden, HiddenSizes } from './Hidden';
+import React from 'react';
+import styled from 'styled-components';
+
 import { NullRenderer } from './NullRenderer';
 import { Stack, Justify } from './Stack';
 
+const Label = styled.label`
+  margin-right: 0.4ch;
+`;
+
 function App() {
+  const [alignX, setAlignX] = React.useState(Justify.left);
+
   return (
     <div className="App">
       <h2>Stack</h2>
@@ -17,7 +26,14 @@ function App() {
         this demo.
       </p>
 
-      <Stack alignX={Justify.center}>
+      <Label for="alignX">Justify</Label>
+      <select id="alignX" onChange={(evt) => setAlignX(evt.target.value)} value={alignX}>
+        <option value={Justify.left}>{Justify.left}</option>
+        <option value={Justify.center}>{Justify.center}</option>
+        <option value={Justify.right}>{Justify.right}</option>
+      </select>
+
+      <Stack alignX={alignX}>
         <div>Hello, worlds</div>
         <div>Hello, worlds</div>
         <NullRenderer />
