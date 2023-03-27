@@ -33,7 +33,7 @@ const StackContainer = styled.div`
   flex-direction: column;
   margin-block: 48px;
 
-  > ${StackChild} + ${StackChild} {
+  > ${StackChild}:not(:empty) ~ ${StackChild}:not(:empty) {
     border-top: 1px solid green;
   }
 `;

@@ -34,8 +34,11 @@ function App() {
       </select>
 
       <Stack alignX={alignX}>
+        <NullRenderer />
+        <NullRenderer />
         <div>Hello, worlds</div>
         <div>Hello, worlds</div>
+        <NullRenderer />
         <NullRenderer />
         {false && <div>False</div>}
         {true && <div>True</div>}
