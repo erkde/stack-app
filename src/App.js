@@ -26,7 +26,7 @@ function App() {
         this demo.
       </p>
 
-      <Label for="alignX">Justify</Label>
+      <Label htmlFor="alignX">Justify</Label>
       <select id="alignX" onChange={(evt) => setAlignX(evt.target.value)} value={alignX}>
         <option value={Justify.left}>{Justify.left}</option>
         <option value={Justify.center}>{Justify.center}</option>
